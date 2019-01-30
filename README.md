@@ -24,3 +24,10 @@
 2. 依次安装使用到的第三方SDK，例如 
 `npm install react-navigation --save`
 3. 在containers文件下创键对应的页面，撸起来。
+
+
+> 执行脚本
+
+` ./index.sh `
+
+根据提示输入项目的路径，和项目的名称就好了，

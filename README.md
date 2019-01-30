@@ -23,7 +23,15 @@
 1. 将根目录下的app文件移植到新建的react-native项目的根目录下。
 2. 依次安装使用到的第三方SDK，例如 
 `npm install react-navigation --save`
-3. 在containers文件下创键对应的页面，撸起来。
+3. 在根目录下的index.js文件下，修改 
+```
+import {AppRegistry} from 'react-native';
+import Root from './app/containers/Root';
+import {name as appName} from './app.json';
+AppRegistry.registerComponent(appName, () => Root); 
+
+```
+4. 在containers文件下创键对应的页面，撸起来。
 
 
 > 执行脚本

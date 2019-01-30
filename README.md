@@ -38,4 +38,4 @@ AppRegistry.registerComponent(appName, () => Root);
 
 ` ./index.sh `
 
-根据提示输入项目的路径，和项目的名称就好了，
+根据提示输入项目的绝对路径，和项目的名称就好了，

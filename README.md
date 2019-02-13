@@ -40,3 +40,17 @@ AppRegistry.registerComponent(appName, () => Root);
 ` ./index.sh `
 
 根据提示输入项目的绝对路径，和项目的名称就好了，
+
+> 说明
+* 请求的接口说明
+```
+const login = { 
+  name : "登陆", //接口的说明
+  url : "api/member/login", // 对应的api地址
+  method: "POST", // 请求的地址//
+};
+```
+在app/config/appAPI.js中有例子
+
+
+

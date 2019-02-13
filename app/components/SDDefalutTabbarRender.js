@@ -22,7 +22,7 @@ export default class SDDefalutTabbarRender extends PureComponent {
   }
 }
 
-SDDefalutTabbarRender.protoTypes={
+SDDefalutTabbarRender.propTypess={
   titles: PropTypes.array, // 文字数组，
   style: ViewPropTypes.style,
 };

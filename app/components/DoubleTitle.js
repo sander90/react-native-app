@@ -74,7 +74,7 @@ export default class DoubleTitle extends Component{
   }
 }
 
-DoubleTitle.protoType = {
+DoubleTitle.propTypes = {
   // titles : PropTypes.,
   noMargin: PropTypes.boolean, // 正对right有没有 60的偏差值
   marginRight: PropTypes.number,

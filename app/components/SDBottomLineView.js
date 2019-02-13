@@ -15,7 +15,7 @@ export default class BottomLineView extends React.PureComponent{
     )
   }
 }
-BottomLineView.protoTypes={
+BottomLineView.propTypess={
   lineStyle: PropTypes.style,
 };
 const styles = StyleSheet.create({

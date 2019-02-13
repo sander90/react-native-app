@@ -28,12 +28,12 @@ export default class SDHeader extends Component {
     );
   }
 }
-SDHeader.protoTypes = {
-  headerStyle:PropTypes.any,
-  style : PropTypes.any,
-  leftView: PropTypes.func,
-  rightView: PropTypes.func,
-  titleView: PropTypes.func,
+SDHeader.propTypes = {
+  headerStyle:PropTypes.object,
+  style : PropTypes.object,
+  leftView: PropTypes.object,
+  rightView: PropTypes.object,
+  titleView: PropTypes.object,
 }
 
 const styles = StyleSheet.create({

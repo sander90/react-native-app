@@ -16,6 +16,7 @@
 * react-native-root-toast
 * react-native-vector-icons
 * react-native-device-info
+* seamless-immutable
 * ramda
 
 > 使用

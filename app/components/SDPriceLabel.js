@@ -40,7 +40,7 @@ export default class SDPriceLabel extends React.PureComponent {
     )
   }
 }
-SDPriceLabel.protoTypes = {
+SDPriceLabel.propTypes = {
   color: PropTypes.any,
   text: PropTypes.string,
   mainStyle: PropTypes.any,

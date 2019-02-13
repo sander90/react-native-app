@@ -6,6 +6,7 @@ import {
   Dimensions,
   Platform,
   PixelRatio,
+  NativeModules,
 } from 'react-native';
 
 let screen = {
@@ -65,6 +66,19 @@ const SAFE_BOTTOM_DISTANCE = isIphoneX() ? 34 : 0;
 //导航条高度
 const navigationBarH = (Platform.OS === 'ios'?(isIphoneX()?88:64):50);
 const statusBarH = (Platform.OS === 'ios'?(isIphoneX()?44:20):0);
+
+function getContentHeight () {
+  if (Platform.OS === 'ios'){
+    return screen.height - navigationBarH - statusBarH;
+  }else {
+    let RNContentHeight = NativeModules.DeviceContentHeight;
+    RNContentHeight.getContentHeight((height)=>{
+      console.log("屏幕的实际高度是 " + screen.height - height);
+    })
+  }
+}
+
+getContentHeight();
 
 export {screen, isIphoneX , dFont, dSize,navigationBarH, SAFE_BOTTOM_DISTANCE,statusBarH};
 

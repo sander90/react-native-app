@@ -2,9 +2,6 @@
 #!/usr/bin/env bash
 
 
-
-
-
 basedir=`cd $(dirname $0); pwd -P`
 
 echo "当前的路径 = " + $basedir;
@@ -61,6 +58,8 @@ npm install react-native-device-info --save
 npm install ramda --save
 
 npm install react-native-gesture-handler --save
+
+npm install seamless-immutable --save
 
 
 react-native link

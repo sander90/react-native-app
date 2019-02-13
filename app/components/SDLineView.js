@@ -21,12 +21,12 @@ export default class SDLineView extends React.PureComponent{
   render(){
     const {marginLeft, marginRight,height, backgroundColor} = this.props;
     return (
-      <View style={{marginLeft: marginLeft, marginRight: marginRight, height : height, backgroundColor: backgroundColor, width: screen.width}}/>
+      <View style={{marginLeft: marginLeft, marginRight: marginRight, height : height, backgroundColor: backgroundColor}}/>
     )
   }
 }
 
-SDLineView.protoTypes = {
+SDLineView.propTypes = {
   marginLeft: PropTypes.number,
   marginRight: PropTypes.number,
   height: PropTypes.number,

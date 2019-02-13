@@ -32,11 +32,11 @@ export default class Title extends Component {
     );
   }
 }
-Title.protoType = {
+Title.propTypes = {
   title : PropTypes.string,
-  style : PropTypes.style,
-  titleStyle: PropTypes.style,
-  noMargin: PropTypes.boolean, // 正对right有没有 60的偏差值
+  style : PropTypes.object,
+  titleStyle: PropTypes.object,
+  noMargin: PropTypes.bool, // 正对right有没有 60的偏差值
   marginRight: PropTypes.number,
   marginLeft: PropTypes.number,
 }
@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
   },
   mainTitleText:{
     fontSize: dFont(34),
-    color: '#ffffff',
+    color: '#000000',
     fontWeight: 'bold',
   }
 

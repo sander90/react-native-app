@@ -16,6 +16,7 @@ import appAPI from "../config/appAPI";
 
 export const access_token_key = "access_token_user_key";
 export const user_info_key = "user_info_key";
+export const user_info_ps_key = "user_info_ps_key";
 
 
 let instance = null;
@@ -27,6 +28,8 @@ class UserManager {
   // 用户相关信息
   userInfo = null;
   refreshToken = null;
+
+  user_info_ps = null;
 
   static getIntance(){
     return new UserManager();
@@ -42,12 +45,18 @@ class UserManager {
 
   configStorage(){
     console.log("-----> 布局 userInfo");
-    this.getInfo();
+  }
+
+  saveToken(token){
+    this.access_token = token;
+  }
+
+  getToken(){
+    return this.access_token;
   }
 
   clearToken(){
-    this.saveToken("");
-    this.saveUserInfo("");
+
   }
 
   saveInfoCallBacK = (error)=>{
@@ -56,6 +65,19 @@ class UserManager {
     }else{
       console.log("保存成功");
     }
+  }
+
+  saveAccount(acc){
+    this.user_info_ps = acc;
+    AsyncStorage.setItem(user_info_ps_key, this.user_info_ps, this.saveInfoCallBacK);
+  }
+  async getAcccount(callBack){
+    const res = await AsyncStorage.getItem(user_info_ps_key);
+    if (res){
+      callBack(JSON.parse(res));
+      this.user_info_ps = res;
+    }
+
   }
 
 

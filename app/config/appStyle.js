@@ -4,7 +4,7 @@ import DeviceInfo from "react-native-device-info";
 import {dFont, navigationBarH, screen} from "../components/screen";
 
 export const appColor = {
-  appMainColor : "#15ae3f",
+  appMainColor : "#FFFFFF",
   // inactiveTintColor : '#fff',
   inactiveTintColor : '#818181',
   // activeTintColor: '#fff',

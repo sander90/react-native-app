@@ -4,8 +4,13 @@ import { combineReducers } from 'redux';
 
 
 import RootReducer from './RootReducer';
+
+import FilterReducer from './FilterReducer';
+import IndustryReducer from './IndustryReducer';
 export default combineReducers({
   rootd: RootReducer,
+  filter: FilterReducer,
+  industry: IndustryReducer,
 })
 
 // 添加persist黑名单，以下这些reducer不需要持久化

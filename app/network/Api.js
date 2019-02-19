@@ -48,13 +48,6 @@ export function getRequestParams(params,method) {
 export function post(url,params) {
   var requestUrl = url;
   var paramsBody = getRequestParams(params, 'POST');
-  if (requestUrl.indexOf(appAPI.orderPreOrder.url) !== -1 ||
-    requestUrl.indexOf(appAPI.submitOrderGoods.url) !== -1 ||
-    requestUrl.indexOf(appAPI.suborderOrder.url) !==-1 ||
-  requestUrl.indexOf(appAPI.submitShopCartOrder.url) !== -1){
-    paramsBody = JSON.stringify(params);
-  }
-
   return Request.post(requestUrl, paramsBody);
 }
 
@@ -82,7 +75,9 @@ export default function fetchSend (config,params) {
   if (!config || typeof config != 'object'){
     throw new TypeError("urls 有问题");
   }
+  console.log("----> ", config);
   let requestURL = baseURl + config.url;
+  console.log("请求地址 = " + requestURL);
   if (config.method === 'GET'){
     return get(requestURL,params);
   }else if (config.method === 'POST'){

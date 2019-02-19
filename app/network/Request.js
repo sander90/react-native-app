@@ -135,38 +135,12 @@ export default class Request {
     data="",
     saveToCache=false)
   {
-
-    var token = "";
-
-    let access_token = UserInfo().getToken();
-
-    console.log('请求数据----customFetch ---获取token');
-    console.log(access_token);
-    // let userInfo = UserInfo().getUserInfo();
-    // console.log("--UserInfo---->");
-    // console.log(userInfo);
-
     let fetchOptions ={
       method,
       headers: {
         'Content-Type': 'application/x-www-form-urlencoded',
-        'token':access_token,
       },
     };
-
-    if (uri.indexOf(appAPI.orderPreOrder.url) !== -1 ||
-      uri.indexOf(appAPI.submitOrderGoods.url) !== -1 ||
-      uri.indexOf(appAPI.suborderOrder.url) !== -1 ||
-      uri.indexOf(appAPI.submitShopCartOrder.url) !== -1){
-      fetchOptions ={
-        method,
-        headers: {
-          'Content-Type': 'application/json',
-          'token':access_token,
-        },
-      };
-    }
-
     if (data && data.length > 0){
       fetchOptions.body = data;
     }

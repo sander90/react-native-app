@@ -37,7 +37,6 @@ const pageView = {
 };
 
 
-
 const RootController = createStackNavigator(pageView, {
   navigationOptions: ({navigation} = 0) => {
     return {
@@ -54,8 +53,10 @@ const RootController = createStackNavigator(pageView, {
       headerBackTitle: null,
       gesturesEnabled: false,
     }
-  }
-}, {initialRouteName: 'Home',});
+  },
+  initialRouteName: "Home",
+});
+
 const AppContainer = createAppContainer(RootController);
 
 const {store} = configureStore();

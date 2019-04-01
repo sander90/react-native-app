@@ -15,25 +15,45 @@ import {
   createStackNavigator,
   createBottomTabNavigator, createAppContainer,
 } from 'react-navigation'; // 更多的配置查看 https://reactnavigation.org/docs/en/getting-started.html
-import * as WeChat from 'react-native-wechat';
 
 
 import {Provider} from 'react-redux';
 import configureStore from '../store/configureStore';
 import NavigationService from '../components/NavigationService'
-//page
-import Login from './Login';
-import Home from './Home';
-import SDFilterController from './Filter';
+
 
 import {appColor} from "../config/appStyle";
 import {apiConfig} from "../config";
+import {dFont} from "../components/screen";
 
+
+
+//page
+import App from '../../App'
+
+import {TabPages,tab_orders} from "./pages";
+
+const TabBar = createBottomTabNavigator(TabPages, {
+  lazy: true,
+  swipeEnabled: false, //是否允许tabBar手势切换
+  order: tab_orders,
+  tabBarOptions: {
+    animationEnabled: false,
+    swipeEnabled: false,
+    showIcon: true,
+    inactiveTintColor: appColor.inactiveTintColor,
+    activeTintColor: appColor.activeTintColor,
+    style: {
+      backgroundColor: 'rgba(241,2,2,0)',
+    },
+    labelStyle: {
+      fontSize: dFont(24),
+    },
+  }
+});
 
 const pageView = {
-  Home: {screen: Home},
-  login: {screen: Login},
-  filterController: {screen: SDFilterController}
+  Tab: {screen: TabBar}
 };
 
 
@@ -54,7 +74,7 @@ const RootController = createStackNavigator(pageView, {
       gesturesEnabled: false,
     }
   },
-  initialRouteName: "Home",
+  initialRouteName: "Tab",
 });
 
 const AppContainer = createAppContainer(RootController);
@@ -68,10 +88,6 @@ export default class Root extends PureComponent {
   constructor(props) {
     super(props);
     this.requestContactsPermission();
-    console.log("-----> " + apiConfig.weCahtAppId);
-    WeChat.registerApp(apiConfig.weCahtAppId).then(isgistr=>{
-      console.log("已经注册成功了 " + isgistr);
-    })
   }
 
 

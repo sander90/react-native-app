@@ -8,7 +8,7 @@ import {
   Text,
   View,
   StatusBar,
-  PermissionsAndroid} from 'react-native';
+  PermissionsAndroid,} from 'react-native';
 
 // 第三方插件
 import {
@@ -23,15 +23,9 @@ import NavigationService from '../components/NavigationService'
 
 
 import {appColor} from "../config/appStyle";
-import {apiConfig} from "../config";
 import {dFont} from "../components/screen";
 
-
-
-//page
-import App from '../../App'
-
-import {TabPages,tab_orders} from "./pages";
+import {TabPages,tab_orders, navigationPages} from "./pages";
 
 const TabBar = createBottomTabNavigator(TabPages, {
   lazy: true,
@@ -53,7 +47,8 @@ const TabBar = createBottomTabNavigator(TabPages, {
 });
 
 const pageView = {
-  Tab: {screen: TabBar}
+  Tab: {screen: TabBar},
+  ...navigationPages,
 };
 
 
@@ -84,37 +79,18 @@ const {store} = configureStore();
 
 export default class Root extends PureComponent {
 
-
   constructor(props) {
     super(props);
-    this.requestContactsPermission();
-  }
 
-
-  async requestContactsPermission(){
-    try {
-      const granted = await PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.READ_CONTACTS);
-      if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-        console.log('You can use read contacts');
-      } else {
-        console.log('read contacts permission denied');
-      }
-      const w_granted = await PermissionsAndroid.request(PermissionsAndroid.PERMISSIONS.WRITE_CONTACTS);
-
-      if (w_granted === PermissionsAndroid.RESULTS.GRANTED) {
-        console.log('You can use writed contacts');
-      } else {
-        console.log('writed contacts permission denied');
-      }
-    }catch (e) {
-
-    }
   }
   render() {
     return (
       <Provider store={store}>
         <View style={{flex: 1}}>
-          <AppContainer/>
+          <StatusBar backgroundColor={appColor.appMainColor}></StatusBar>
+          <AppContainer ref={navigatorRef=>{
+            NavigationService.setTopLevelNavigator(navigatorRef);
+          }}/>
         </View>
       </Provider>
     );

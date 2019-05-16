@@ -1,13 +1,16 @@
+// 搜索的页面管理
 
-import SDHomePage from '../Home';
-import SDMyPage from '../MyPage/SDMyPage';
-import SDShopCart from '../ShopCart';
-import SDShopKind from '../ShopKind';
+import PageFirst from '../PageFirst';
+import PageSecond from '../PageSecond';
+import PageThird from  '../PageThird';
 export const TabPages = {
-  homePage: {screen: SDHomePage},
-  myPage:{screen: SDMyPage},
-  shopCart: {screen: SDShopCart},
-  shopKind: {screen: SDShopKind},
+  first: {screen: PageFirst},
+  second:{screen: PageSecond},
+  third: {screen: PageThird},
 };
 
-export const tab_orders = ["homePage", "shopKind", "shopCart", "myPage"];
+export const navigationPages = {
+
+};
+
+export const tab_orders = ["first", "second", "third"];
